@@ -179,3 +179,5 @@ EOF
 # then frontend
 kubectl --context $CLUSTER_2 apply -k frontend/variant/
 ```
+
+Yep - single cluster works!
