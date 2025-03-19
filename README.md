@@ -34,7 +34,7 @@ ${CLUSTER_2} --region ${REGION} \
 --enable-private-nodes --enable-fleet
 ```
 
-### mesh sestup 
+### mesh setup 
 
 ```
 # once clusters are ready (check console or CLI for status), get creds and add to kube context 
