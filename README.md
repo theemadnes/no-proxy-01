@@ -66,6 +66,10 @@ curl https://raw.githubusercontent.com/kubernetes-sigs/gateway-api/v1.1.0/config
 curl https://raw.githubusercontent.com/kubernetes-sigs/gateway-api/v1.1.0/config/crd/standard/gateway.networking.k8s.io_grpcroutes.yaml \
 | kubectl --context ${CLUSTER_2} apply -f -
 
+# enable permissions for workloads to act as a Traffic Director client
+gcloud projects add-iam-policy-binding ${PROJECT_ID} \
+    --member "group:${PROJECT_ID}.svc.id.goog:/allAuthenticatedUsers/" \
+    --role "roles/trafficdirector.client"
 ```
 
 ### create workloads 
