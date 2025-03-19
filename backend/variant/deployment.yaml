@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: whereami-grpc
+  labels:
+    app: whereami-grpc
+spec:
+  selector:
+    matchLabels:
+      app: whereami-grpc
+  replicas: 3
+  template:
+    metadata:
+      annotations:
+        inject.istio.io/templates: gateway
+      labels:
+        app: whereami-grpc
+    spec:
+      topologySpreadConstraints:
+      - maxSkew: 1
+        minDomains: 3 # optional
+        topologyKey: topology.kubernetes.io/zone
+        whenUnsatisfiable: DoNotSchedule
+        labelSelector:
+          matchLabels:
+            app: whereami-grpc
