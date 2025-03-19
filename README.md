@@ -181,3 +181,36 @@ kubectl --context $CLUSTER_2 apply -k frontend/variant/
 ```
 
 Yep - single cluster works!
+```
+$ grpcurl -plaintext 34.71.248.188:9090 whereami.Whereami.GetPayload
+{
+  "backend_result": {
+    "cluster_name": "backend",
+    "metadata": "backend",
+    "node_name": "gk3-backend-nap-1fr11neh-c6c9dc2a-w7tk",
+    "pod_ip": "10.8.129.25",
+    "pod_name": "whereami-grpc-backend-57dcd49d9c-jwsv2",
+    "pod_name_emoji": "👩🏼‍❤️‍💋‍👩🏼",
+    "pod_namespace": "backend",
+    "pod_service_account": "whereami-grpc-backend",
+    "project_id": "no-proxy-01",
+    "timestamp": "2025-03-19T05:13:26",
+    "zone": "us-central1-c",
+    "gce_instance_id": "7339505044984166567",
+    "gce_service_account": "no-proxy-01.svc.id.goog"
+  },
+  "cluster_name": "backend",
+  "metadata": "frontend",
+  "node_name": "gk3-backend-nap-1fr11neh-c6c9dc2a-w7tk",
+  "pod_ip": "10.8.129.23",
+  "pod_name": "whereami-grpc-frontend-68c9655c9f-dpfn4",
+  "pod_name_emoji": "👩🏼‍❤‍👨🏻",
+  "pod_namespace": "frontend",
+  "pod_service_account": "whereami-grpc-frontend",
+  "project_id": "no-proxy-01",
+  "timestamp": "2025-03-19T05:13:26",
+  "zone": "us-central1-c",
+  "gce_instance_id": "7339505044984166567",
+  "gce_service_account": "no-proxy-01.svc.id.goog"
+}
+```
