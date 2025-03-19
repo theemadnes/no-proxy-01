@@ -3,7 +3,7 @@ kind: ConfigMap
 metadata:
   name: whereami-grpc
 data:
-  BACKEND_ENABLED: "True" # assuming you don't want a chain of backend calls
+  BACKEND_ENABLED: "True"
   METADATA:        "frontend"
   GRPC_ENABLED: "True"
   BACKEND_SERVICE: "xds:///whereami-grpc-backend.backend.svc.cluster.local:9090"
