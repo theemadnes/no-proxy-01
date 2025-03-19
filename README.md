@@ -108,8 +108,8 @@ metadata:
   namespace: backend
 spec:
   parentRefs:
-  - name: whereami-grpc-backend
-    namespace: backend
+  - name: whereami-grpc-frontend
+    namespace: frontend
     kind: Service
     group: ""
   rules:
